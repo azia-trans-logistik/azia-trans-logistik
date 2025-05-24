@@ -1,76 +1,90 @@
-index.html<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>AZIA Trans Logistik — Логистика с доверием</title>
-<style>
-  body <header style="text-align: center; padding: 20px;">
-  <img src="logo.png" alt="AZIA Trans Logistik" style="height: 80px;">
-</header>
- { font-family: Arial, sans-serif; margin:0; padding:0; background:#f7f7f7; color:#222; }
-  header { background:#004080; color:#fff; padding:20px 10px; text-align:center; }
-  h1 { margin:0; font-size:2em; }
-  .slogan { font-size:1.2em; margin-top:5px; }
-  section { padding:20px 10px; max-width:900px; margin:auto; background:#fff; margin-top:20px; border-radius:8px; box-shadow:0 0 10px rgba(0,0,0,0.1); }
-  .contact { background:#004080; color:#fff; padding:15px; text-align:center; margin-top:30px; border-radius:8px; }
-  a.whatsapp-button {
-    display:inline-block; background:#25D366; color:#fff; padding:10px 20px; border-radius:30px; text-decoration:none; font-weight:bold;
-    box-shadow:0 4px 6px rgba(0,0,0,0.2); transition: background 0.3s;
-  }
-  a.whatsapp-button:hover { background:#1ebe57; }
-  footer { text-align:center; font-size:0.9em; color:#666; margin:20px 0; }
-  .lang-switch { text-align:right; margin:10px 20px; }
-  .lang-switch button {
-    border:none; background:#004080; color:#fff; margin-left:5px; padding:5px 10px; border-radius:4px; cursor:pointer;
-  }
-  .lang-switch button.active { background:#0288d1; }
-  .hidden { display:none; }
-</style>
-<script>
-  function switchLang(lang) {
-    document.querySelectorAll('.lang').forEach(el => el.classList.add('hidden'));
-    document.querySelectorAll('.lang-' + lang).forEach(el => el.classList.remove('hidden'));
-    document.querySelectorAll('.lang-switch button').forEach(btn => btn.classList.remove('active'));
-    document.getElementById('btn-' + lang).classList.add('active');
-  }
-  window.onload = () => switchLang('ru');
-</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AZIA Trans Logistik</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: url('map-kazakhstan.png') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+      text-align: center;
+    }
+    header {
+      padding: 60px 20px 20px;
+      background-color: rgba(0, 0, 0, 0.4);
+    }
+    .logo {
+      height: 100px;
+    }
+    h1 {
+      font-size: 2.5em;
+      margin: 10px 0 5px;
+    }
+    .slogan {
+      font-size: 1.2em;
+      margin-bottom: 30px;
+    }
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+    .button {
+      background-color: #1c3d6e;
+      padding: 15px 30px;
+      border-radius: 8px;
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+    .button:hover {
+      background-color: #295a9f;
+    }
+    .contacts {
+      margin-bottom: 30px;
+    }
+    .contacts p {
+      margin: 5px 0;
+    }
+    .icons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 10px;
+    }
+    .icons a {
+      color: white;
+      font-size: 1.4em;
+      text-decoration: none;
+    }
+  </style>
 </head>
 <body>
-<header>
-  <h1>AZIA Trans Logistik</h1>
-  <div class="slogan lang lang-ru">Логистика с доверием — по Казахстану и за его пределами</div>
-  <div class="slogan lang lang-kz hidden">Сеніммен логистика — Қазақстан бойынша және шекарадан тыс</div>
-</header>
+  <header>
+    <img src="logo.png" alt="AZIA Trans Logistik" class="logo">
+    <h1>AZIA Trans Logistik</h1>
+    <div class="slogan">ваш путь начинается здесь</div>
 
-<div class="lang-switch">
-  <button id="btn-ru" onclick="switchLang('ru')">Русский</button>
-  <button id="btn-kz" onclick="switchLang('kz')">Қазақша</button>
-</div>
+    <div class="buttons">
+      <a href="#" class="button">Контакты</a>
+    </div>
 
-<section>
-  <h2 class="lang lang-ru">Наши услуги</h2>
-  <h2 class="lang lang-kz hidden">Біздің қызметтеріміз</h2>
-  <p class="lang lang-ru">Перевозки грузов по городу, междугородние маршруты, международная логистика с гарантией качества и безопасности.</p>
-  <p class="lang lang-kz hidden">Қалаішілік және қаладан қалаға жүк тасымалдау, халықаралық логистика, сапа мен қауіпсіздік кепілдігімен.</p>
-
-  <h2 class="lang lang-ru">Контакты</h2>
-  <h2 class="lang lang-kz hidden">Байланыс</h2>
-  <p class="lang lang-ru">Телефон: <a href="tel:+77472305584">+7 747 230 55 84</a></p>
-  <p class="lang lang-ru">WhatsApp (круглосуточно): <a href="https://wa.me/77472305584" target="_blank" class="whatsapp-button">Написать в WhatsApp</a></p>
-  <p class="lang lang-ru">Instagram: <a href="https://instagram.com/azia_trans_logistik" target="_blank">@azia_trans_logistik</a></p>
-  <p class="lang lang-ru">Telegram: <a href="https://t.me/azia_trans_logistik" target="_blank">@azia_trans_logistik</a></p>
-  
-  <p class="lang lang-kz hidden">Телефон: <a href="tel:+77472305584">+7 747 230 55 84</a></p>
-  <p class="lang lang-kz hidden">WhatsApp (24/7): <a href="https://wa.me/77472305584" target="_blank" class="whatsapp-button">WhatsApp-та жазу</a></p>
-  <p class="lang lang-kz hidden">Instagram: <a href="https://instagram.com/azia_trans_logistik" target="_blank">@azia_trans_logistik</a></p>
-  <p class="lang lang-kz hidden">Telegram: <a href="https://t.me/azia_trans_logistik" target="_blank">@azia_trans_logistik</a></p>
-</section>
-
-<footer>
-  © 2025 AZIA Trans Logistik. Все права защищены.
-</footer>
-
+    <div class="contacts">
+      <p>📞 +7 747 230 55 84</p>
+      <div class="icons">
+        <a href="https://wa.me/77472305584" target="_blank">📱</a>
+        <a href="https://instagram.com/azia_trans_logistik" target="_blank">📸</a>
+        <a href="https://t.me/azia_trans_logistik" target="_blank">📨</a>
+        <a href="mailto:aziatranslogistik@gmail.com">✉️</a>
+      </div>
+    </div>
+  </header>
 </body>
 </html>
