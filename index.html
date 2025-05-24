@@ -1,164 +1,28 @@
-<!DOCTYPE html>
+index.html<!DOCTYPE html>
 <html lang="ru">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>AZIA Trans Logistik — Логистика с доверием</title>
 <style>
-  body {
-    font-family: Arial, sans-serif;
-    margin:0; padding:0;
-    background-color: #e1e4e8; /* светло-серый фон */
-    color: #1a1a1a;
-    position: relative;
-    min-height: 100vh;
-  }
-
-  /* Фоновая карта Казахстана */
-  body::before {
-    content: "";
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    width: 600px;
-    height: 400px;
-    background: url('kz-map-gray.svg') no-repeat center center;
-    background-size: contain;
-    opacity: 0.07;
-    transform: translate(-50%, -50%);
-    pointer-events: none;
-    z-index: 0;
-  }
-
-  header {
-    background: #004080; /* темно-синий */
-    color: #fff;
-    padding: 30px 20px 40px;
-    text-align: center;
-    position: relative;
-    z-index: 1;
-  }
-
-  header img {
-    height: 120px; /* увеличенный логотип */
-    margin-bottom: 15px;
-  }
-
-  h1 {
-    margin: 0 0 10px;
-    font-weight: 700;
-    font-size: 2.4em;
-  }
-
-  .slogan {
-    font-size: 1.3em;
-    font-weight: 500;
-  }
-
-  .lang-switch {
-    text-align: right;
-    margin: 15px 30px 10px;
-    position: relative;
-    z-index: 1;
-  }
-
-  .lang-switch button {
-    border:none;
-    background:#004080;
-    color:#fff;
-    margin-left:5px;
-    padding:7px 15px;
-    border-radius:4px;
-    cursor:pointer;
-    font-weight: 600;
-    font-size: 14px;
-  }
-
-  .lang-switch button.active {
-    background:#0288d1;
-  }
-
-  section {
-    max-width: 900px;
-    margin: 20px auto 40px;
-    background: #fff;
-    padding: 25px 30px;
-    border-radius: 10px;
-    box-shadow: 0 0 12px rgba(0,0,0,0.1);
-    position: relative;
-    z-index: 1;
-  }
-
-  h2 {
-    color: #003366;
-    margin-top: 0;
-  }
-
-  p {
-    font-size: 1.1em;
-    line-height: 1.5em;
-  }
-
-  /* Контакты с номерами и кнопками */
-  .contacts {
-    margin-top: 30px;
-    text-align: center;
-  }
-
-  .phone-block {
-    margin: 15px 0;
-  }
-
-  .phone-number {
-    font-weight: 700;
-    font-size: 1.3em;
-    color: #004080;
-    text-decoration: none;
-    margin-left: 10px;
-    display: none;
-  }
-
-  .show-number-btn {
-    background-color: #004080;
-    color: white;
-    border: none;
-    padding: 8px 18px;
-    border-radius: 6px;
-    font-weight: 600;
-    font-size: 14px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-
-  .show-number-btn:hover {
-    background-color: #0066cc;
-  }
-
+  body { font-family: Arial, sans-serif; margin:0; padding:0; background:#f7f7f7; color:#222; }
+  header { background:#004080; color:#fff; padding:20px 10px; text-align:center; }
+  h1 { margin:0; font-size:2em; }
+  .slogan { font-size:1.2em; margin-top:5px; }
+  section { padding:20px 10px; max-width:900px; margin:auto; background:#fff; margin-top:20px; border-radius:8px; box-shadow:0 0 10px rgba(0,0,0,0.1); }
+  .contact { background:#004080; color:#fff; padding:15px; text-align:center; margin-top:30px; border-radius:8px; }
   a.whatsapp-button {
-    display: inline-block;
-    background: #25D366;
-    color: #fff;
-    padding: 10px 20px;
-    border-radius: 30px;
-    text-decoration: none;
-    font-weight: bold;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-    transition: background 0.3s;
-    margin-top: 10px;
+    display:inline-block; background:#25D366; color:#fff; padding:10px 20px; border-radius:30px; text-decoration:none; font-weight:bold;
+    box-shadow:0 4px 6px rgba(0,0,0,0.2); transition: background 0.3s;
   }
-
-  a.whatsapp-button:hover {
-    background: #1ebe57;
+  a.whatsapp-button:hover { background:#1ebe57; }
+  footer { text-align:center; font-size:0.9em; color:#666; margin:20px 0; }
+  .lang-switch { text-align:right; margin:10px 20px; }
+  .lang-switch button {
+    border:none; background:#004080; color:#fff; margin-left:5px; padding:5px 10px; border-radius:4px; cursor:pointer;
   }
-
-  footer {
-    text-align: center;
-    font-size: 0.9em;
-    color: #666;
-    margin: 30px 0;
-    position: relative;
-    z-index: 1;
-  }
+  .lang-switch button.active { background:#0288d1; }
+  .hidden { display:none; }
 </style>
 <script>
   function switchLang(lang) {
@@ -167,26 +31,11 @@
     document.querySelectorAll('.lang-switch button').forEach(btn => btn.classList.remove('active'));
     document.getElementById('btn-' + lang).classList.add('active');
   }
-
   window.onload = () => switchLang('ru');
-
-  // Функция для показа/скрытия номера телефона
-  function toggleNumber(id, btn) {
-    const phone = document.getElementById(id);
-    if (phone.style.display === 'inline') {
-      phone.style.display = 'none';
-      btn.textContent = 'Показать номер';
-    } else {
-      phone.style.display = 'inline';
-      btn.textContent = 'Скрыть номер';
-    }
-  }
 </script>
 </head>
 <body>
-
 <header>
-  <img src="logo.png" alt="AZIA Trans Logistik">
   <h1>AZIA Trans Logistik</h1>
   <div class="slogan lang lang-ru">Логистика с доверием — по Казахстану и за его пределами</div>
   <div class="slogan lang lang-kz hidden">Сеніммен логистика — Қазақстан бойынша және шекарадан тыс</div>
@@ -203,36 +52,17 @@
   <p class="lang lang-ru">Перевозки грузов по городу, междугородние маршруты, международная логистика с гарантией качества и безопасности.</p>
   <p class="lang lang-kz hidden">Қалаішілік және қаладан қалаға жүк тасымалдау, халықаралық логистика, сапа мен қауіпсіздік кепілдігімен.</p>
 
-  <div class="contacts">
-    <h2 class="lang lang-ru">Контакты</h2>
-    <h2 class="lang lang-kz hidden">Байланыс</h2>
-
-    <div class="phone-block lang lang-ru">
-      <button class="show-number-btn" onclick="toggleNumber('phone1', this)">Показать номер</button>
-      <a href="tel:+77472305584" id="phone1" class="phone-number">+7 747 230 55 84</a>
-    </div>
-    <div class="phone-block lang lang-ru">
-      <button class="show-number-btn" onclick="toggleNumber('phone2', this)">Показать номер</button>
-      <a href="tel:+77066061969" id="phone2" class="phone-number">+7 706 606 19 69</a>
-    </div>
-    <p class="lang lang-ru">
-      WhatsApp (круглосуточно): 
-      <a href="https://wa.me/77472305584" target="_blank" class="whatsapp-button">Написать в WhatsApp</a>
-    </p>
-    
-    <div class="phone-block lang lang-kz hidden">
-      <button class="show-number-btn" onclick="toggleNumber('phone1_kz', this)">Нөмірді көрсету</button>
-      <a href="tel:+77472305584" id="phone1_kz" class="phone-number">+7 747 230 55 84</a>
-    </div>
-    <div class="phone-block lang lang-kz hidden">
-      <button class="show-number-btn" onclick="toggleNumber('phone2_kz', this)">Нөмірді көрсету</button>
-      <a href="tel:+77066061969" id="phone2_kz" class="phone-number">+7 706 606 19 69</a>
-    </div>
-    <p class="lang lang-kz hidden">
-      WhatsApp (24/7): 
-      <a href="https://wa.me/77472305584" target="_blank" class="whatsapp-button">WhatsApp-та жазу</a>
-    </p>
-  </div>
+  <h2 class="lang lang-ru">Контакты</h2>
+  <h2 class="lang lang-kz hidden">Байланыс</h2>
+  <p class="lang lang-ru">Телефон: <a href="tel:+77472305584">+7 747 230 55 84</a></p>
+  <p class="lang lang-ru">WhatsApp (круглосуточно): <a href="https://wa.me/77472305584" target="_blank" class="whatsapp-button">Написать в WhatsApp</a></p>
+  <p class="lang lang-ru">Instagram: <a href="https://instagram.com/azia_trans_logistik" target="_blank">@azia_trans_logistik</a></p>
+  <p class="lang lang-ru">Telegram: <a href="https://t.me/azia_trans_logistik" target="_blank">@azia_trans_logistik</a></p>
+  
+  <p class="lang lang-kz hidden">Телефон: <a href="tel:+77472305584">+7 747 230 55 84</a></p>
+  <p class="lang lang-kz hidden">WhatsApp (24/7): <a href="https://wa.me/77472305584" target="_blank" class="whatsapp-button">WhatsApp-та жазу</a></p>
+  <p class="lang lang-kz hidden">Instagram: <a href="https://instagram.com/azia_trans_logistik" target="_blank">@azia_trans_logistik</a></p>
+  <p class="lang lang-kz hidden">Telegram: <a href="https://t.me/azia_trans_logistik" target="_blank">@azia_trans_logistik</a></p>
 </section>
 
 <footer>
